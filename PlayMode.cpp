@@ -93,11 +93,11 @@ PlayMode::PlayMode() : scene(*base_scene) {
 	camera = &scene.cameras.front();
 
 	// rand docs: https://cplusplus.com/reference/cstdlib/rand/
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 
-	item_pos.x = 1 + rand() % 8;
-	item_pos.y = 1 + rand() % 8;
-	item_pos.z = 1 + rand() % 8;
+	item_pos.x = float(1 + rand() % 8);
+	item_pos.y = float(1 + rand() % 8);
+	item_pos.z = float(1 + rand() % 8);
 	// item_pos.x = 1.0f;
 	// item_pos.y = 1.0f;
 	// item_pos.z = 1.0f;
@@ -266,7 +266,7 @@ void PlayMode::update(float elapsed) {
 
 	// move scanline
 	{
-		float end_coord = 1.45;
+		float end_coord = 1.45f;
 		static float PlayerSpeed = 0;
 		scanline->position.y += PlayerSpeed * elapsed;
 
